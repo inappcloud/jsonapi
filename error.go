@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+// Error writes the specified error to w.
+// If error is a Go standard error, it will write a ErrInternalServer (500) and log the error.
 func Error(w http.ResponseWriter, err error) {
 	var strErr *StandardError
 
@@ -23,6 +25,7 @@ func Error(w http.ResponseWriter, err error) {
 	json.NewEncoder(w).Encode(map[string][]*StandardError{"errors": []*StandardError{strErr}})
 }
 
+// NotFound is a substitute of the standard NotFoud handler in Goji, but it writes JSON instead of plain responses.
 func NotFound(w http.ResponseWriter, r *http.Request) {
 	ContentTypeHandler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
