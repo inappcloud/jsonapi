@@ -1,6 +1,4 @@
-# jsonapi
-
-[![Build Status](https://travis-ci.org/inappcloud/jsonapi.svg?branch=master)](https://travis-ci.org/inappcloud/jsonapi)
+# jsonapi [![GoDoc](https://godoc.org/github.com/inappcloud/jsonapi?status.png)](https://godoc.org/github.com/inappcloud/jsonapi) [![Build Status](https://travis-ci.org/inappcloud/jsonapi.svg?branch=master)](https://travis-ci.org/inappcloud/jsonapi)
 
 Library with various handlers to make JSON APIs with Go easier to build.
 
