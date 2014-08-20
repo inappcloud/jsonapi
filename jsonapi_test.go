@@ -43,7 +43,7 @@ func TestHandler(t *testing.T) {
 	r, _ := http.NewRequest("POST", "/", bytes.NewBufferString(body))
 
 	pr := new(PostRequest)
-	jsonapi.Handler(pr, nil).ServeHTTP(w, r)
+	jsonapi.BodyParserHandler(pr, nil).ServeHTTP(w, r)
 
 	eq(t, 1, len(pr.Posts))
 	eq(t, "1", pr.Posts[0].Id)
@@ -56,7 +56,7 @@ func TestHandler(t *testing.T) {
 	r, _ = http.NewRequest("POST", "/", bytes.NewBufferString(body))
 
 	pr = new(PostRequest)
-	jsonapi.Handler(pr, nil).ServeHTTP(w, r)
+	jsonapi.BodyParserHandler(pr, nil).ServeHTTP(w, r)
 
 	eq(t, 400, w.Code)
 	eq(t, err(jsonapi.ErrBadRequest), w.Body.String())
