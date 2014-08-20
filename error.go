@@ -25,8 +25,8 @@ func Error(w http.ResponseWriter, err error) {
 	json.NewEncoder(w).Encode(map[string][]*StandardError{"errors": []*StandardError{strErr}})
 }
 
-// NotFound is a substitute of the standard NotFoud handler in Goji, but it writes JSON instead of plain responses.
-func NotFound(w http.ResponseWriter, r *http.Request) {
+// NotFoundHandler is a substitute of the standard NotFoud handler in Goji, but it writes JSON instead of plain responses.
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	ContentTypeHandler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
 		Error(w, ErrNotFound)

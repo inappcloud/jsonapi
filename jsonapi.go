@@ -6,9 +6,9 @@ import (
 	"net/http"
 )
 
-// Handler decodes request JSON body to v. If decoding was unsuccessful,
+// BodyParserHandler decodes request JSON body to v. If decoding was unsuccessful,
 // it writes ErrBadRequest (400) to w.
-func Handler(v interface{}, next http.Handler) http.Handler {
+func BodyParserHandler(v interface{}, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		err := json.NewDecoder(r.Body).Decode(v)
 
